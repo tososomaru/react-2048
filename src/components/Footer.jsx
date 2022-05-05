@@ -1,8 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import Text from '../Styles/Text';
 import Link from '../Styles/Link';
 import Row from '../Styles/Row';
-import styled from 'styled-components';
 
 const StyledFooter = styled.div`
   margin-top: 10px;

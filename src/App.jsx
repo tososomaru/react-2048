@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './components/Layout/Layout';
-import ControlPanel from './components/ControlPanel/ControlPanel';
-import Score from './components/Score/Score';
-import Button from './components/Button/Button';
-import Grid from './components/Grid/Grid';
-import Title from './components/Styles/Title';
-import Container from './components/Styles/Row';
-import Message from './components/Message/Message';
-import Addition from './components/Addition/Addition';
-import Column from './components/Styles/Column';
-import Footer from './components/Footer/Footer';
-import play from './functools/play';
+import Layout from './components/Layout';
+import ControlPanel from './components/ControlPanel';
+import Score from './components/Score';
+import Button from './components/Button';
+import Grid from './components/Grid';
+import Footer from './components/Footer';
+import Message from './components/Message';
+import Addition from './components/Addition';
+import Column from './Styles/Column';
+import Title from './Styles/Title';
+import Container from './Styles/Row';
+
+import play from './logic/play';
 
 const KeyDirections = {
   ArrowUp: 'up',
@@ -28,11 +29,18 @@ const App = () => {
   const [changedScore, setChangedScore] = useState(0);
   const [showAddition, setShowAddition] = useState(false);
   const [freeGame, setFreeGame] = useState(false);
+  const [additionalNumber, setAdditionalNumber] = useState({ row: 0, col: 0 });
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const moveCallback = (direction) => {
-    const { nextField, additional, defeat, victory } = play({
+    const {
+      nextField,
+      additional,
+      defeat,
+      victory,
+      additionalNumber: newNumber,
+    } = play({
       prevField: numbers,
       direction,
       isNewGame: false,
@@ -40,6 +48,10 @@ const App = () => {
 
     if (additional) {
       setChangedScore(additional);
+    }
+
+    if (newNumber) {
+      setAdditionalNumber(newNumber);
     }
 
     setNumbers(nextField);
@@ -105,11 +117,11 @@ const App = () => {
         </Container>
       </ControlPanel>
       <ControlPanel>
-        <span></span>
+        <span />
         <Button onClick={restartCallback}>New Game</Button>
       </ControlPanel>
       <Column height="500px" width="500px">
-        <Grid numbers={numbers} />
+        <Grid numbers={numbers} additionalNumber={additionalNumber} />
         <Message
           trigger={isLoss}
           title="Game Over!"

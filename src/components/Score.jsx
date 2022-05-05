@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Addition from '../Addition/Addition';
 
 const StyledScore = styled.p`
   font-weight: bold;

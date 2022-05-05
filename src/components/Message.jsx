@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Title from '../Styles/Title';
-import Button from '../Button/Button';
+import Button from './Button';
 
 const StyledView = styled.div`
   width: 100%;

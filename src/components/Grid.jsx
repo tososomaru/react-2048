@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cell from '../Cell/Cell';
+import Cell from './Cell/Cell';
 
 const StyledGrid = styled.div`
   background: #bbada0;
@@ -19,11 +19,18 @@ const StyledGrid = styled.div`
   }
 `;
 
-const Grid = ({ numbers }) => (
+const Grid = ({ numbers, additionalNumber }) => (
   <StyledGrid>
     {numbers.map((row, indexRow) =>
       row.map((number, indexNumber) => (
-        <Cell key={indexRow * 4 + indexNumber} number={number} />
+        <Cell
+          key={indexRow * 4 + indexNumber}
+          number={number}
+          additional={
+            indexRow === additionalNumber.row - 1 &&
+            indexNumber === additionalNumber.col - 1
+          }
+        />
       ))
     )}
   </StyledGrid>

@@ -10,6 +10,17 @@
   font-size: 30px;
 }
 
+.additional {
+  animation: show 200ms ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.5;
+    transform: scale(00);
+  }
+}
+
 @media (max-width: 480px) {
   .cell {
     font-size: 5vw;

@@ -24,6 +24,7 @@ function addNumberToField(playField: number[][]) {
   const randomFreeCellIndex = generateRandomInt(freeCells.length);
   const randomCellI = freeCells[randomFreeCellIndex][0];
   const randomCellJ = freeCells[randomFreeCellIndex][1];
+
   const num2or4 = generateRandomInt(100) < 90 ? 2 : 4;
 
   const result = map2DimArr(playField, (elem, i, j) =>
@@ -31,6 +32,20 @@ function addNumberToField(playField: number[][]) {
   );
 
   return result;
+}
+
+function getIndexesRandomNumber(arr) {
+  const ind =
+    arr
+      .map((val, index) => {
+        if (val !== 0) return index;
+      })
+      .filter(Number.isInteger)[0] + 1;
+
+  const row = Math.ceil(ind / 4);
+  const col = ind - (row - 1) * 4;
+  console.log(ind, row, col);
+  return { row, col };
 }
 
 function play({ prevField, direction, isNewGame }) {
@@ -44,6 +59,9 @@ function play({ prevField, direction, isNewGame }) {
   const movedField = moveField(prevField, direction);
   const additional = sumArray(maskArray(movedField, prevField));
   const nextField = addNumberToField(movedField);
+  const maskedNextField = maskArray(nextField, movedField);
+  const additionalNumber = getIndexesRandomNumber(maskedNextField);
+
   const victory = isWin(nextField);
   const defeat = !canBeMove(nextField);
 
@@ -53,6 +71,7 @@ function play({ prevField, direction, isNewGame }) {
     victory,
     defeat,
     additional,
+    additionalNumber,
   };
 }
 
