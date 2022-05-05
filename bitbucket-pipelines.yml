@@ -6,6 +6,9 @@ pipelines:
         name: Build
         script:
           - npm install
+          - git archive --format=tar.gz main -o app.tar.gz
+        artifacts:
+          - app.tar.gz
 
     - step:
         name: Deploy to production
@@ -15,3 +18,4 @@ pipelines:
             variables:
               HEROKU_API_KEY: $HEROKU_API_KEY
               HEROKU_APP_NAME: $HEROKU_APP_NAME
+              ZIP_FILE: app.tar.gz
