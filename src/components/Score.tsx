@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import { getExponent } from '../logic/heplers';
 
 const StyledScore = styled.p`
   font-weight: bold;
-  font-size: 48px;
+  font-size: ${(props) => `${40 - (2 * getExponent(props.value))}px` || '40px'};
 
   @media (max-width: 480px) {
-    font-size: 8vw;
+    font-size: ${(props) => `${8 - (0.2 * getExponent(props.value))}vw` || '8vw'};
   }
 `;
 
@@ -28,11 +29,17 @@ const StyledText = styled.p`
   }
 `;
 
-const Score = ({ text, score, children }) => (
+export interface IScore {
+  text: string,
+  score: number,
+  children?: React.ReactNode
+}
+
+const Score: FC<IScore> = ({ text, score, children }) => (
   <Content>
     <StyledText>{text}</StyledText>
     {children}
-    <StyledScore>{score}</StyledScore>
+    <StyledScore value={score}>{score}</StyledScore>
   </Content>
 );
 

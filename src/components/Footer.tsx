@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import Text from '../Styles/Text';
-import Link from '../Styles/Link';
-import Row from '../Styles/Row';
+import Text from '../styles/Text';
+import Link from '../styles/Link';
+import Row from '../styles/Row';
 
 const StyledFooter = styled.div`
   margin-top: 10px;
 `;
 
-const Footer = () => (
+const Footer: FC = () => (
   <StyledFooter>
     <Row>
-      <Text fontSize="30px">Code by&nbsp;&nbsp;&nbsp;</Text>
+      <Text fontSize="30px">Code&nbsp;&nbsp;&nbsp;</Text>
       <Link href="https://t.me/tososomaru" target="_blank">
         @tososomaru
       </Link>
     </Row>
     <Row>
-      <Text fontSize="30px">Design by&nbsp;&nbsp;&nbsp;</Text>
+      <Text fontSize="30px">Design&nbsp;&nbsp;&nbsp;</Text>
       <Link href="https://t.me/fadesyphe" target="_blank">
         @fadesyphe
       </Link>

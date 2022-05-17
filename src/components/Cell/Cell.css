@@ -7,18 +7,7 @@
   align-items: center;
   border-radius: 5px;
   font-weight: 700;
-  font-size: 30px;
-}
-
-.additional {
-  animation: show 200ms ease-in-out;
-}
-
-@keyframes show {
-  0% {
-    opacity: 0.5;
-    transform: scale(00);
-  }
+  font-size: 24px;
 }
 
 @media (max-width: 480px) {
@@ -47,39 +36,91 @@
 .cell-16 {
   color: #f9f6f2;
   background-color: #f69664;
+  font-size: 22px;
 }
 
 .cell-32 {
   color: #f9f6f2;
   background-color: #f77c5f;
+  font-size: 22px;
 }
 
 .cell-64 {
   color: #f9f6f2;
   background-color: #f75f3b;
+  font-size: 22px;
 }
 
 .cell-128 {
   color: #f9f6f2;
   background-color: #edd073;
+  font-size: 20px;
 }
 
 .cell-256 {
   color: #f9f6f2;
   background-color: #edcc62;
+  font-size: 20px;
 }
 
 .cell-512 {
   color: #f9f6f2;
   background-color: #edc950;
+  font-size: 20px;
 }
 
 .cell-1024 {
   color: #f9f6f2;
   background-color: #edc53f;
+  font-size: 18px;
 }
 
 .cell-2048 {
   color: #f9f6f2;
   background-color: #edc22e;
+  font-size: 18px;
 }
+
+.cell-4096 {
+  color: #f9f6f2;
+  background-color: #edbe23;
+  font-size: 18px;
+}
+
+.cell-8192 {
+  color: #f9f6f2;
+  background-color: #edc22e;
+  font-size: 18px;
+}
+
+.cell-16384 {
+  color: #f9f6f2;
+  background-color: #edc22e;
+  font-size: 16px;
+}
+
+.cell-32768 {
+  color: #f9f6f2;
+  background-color: #edc22e;
+  font-size: 16px;
+}
+
+.cell-65516{
+  color: #f9f6f2;
+  background-color: #edc22e;
+  font-size: 16px;
+}
+
+.cell-16384{
+  color: #f9f6f2;
+  background-color: #edc22e;
+  font-size: 16px;
+}
+
+.cell-131032 {
+  color: #f9f6f2;
+  background-color: #edc22e;
+  font-size: 14px;
+}
+
+

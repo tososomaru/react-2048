@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-const Row = styled.div`
+const Row = styled.div<{ width?: string, gap?: string }>`
   width: ${({ width }) => width || ''};
+  gap: ${({ gap }) => gap || ''};
   display: flex;
   flex-direction: row;
   align-items: center;

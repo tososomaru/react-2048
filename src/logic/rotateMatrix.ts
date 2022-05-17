@@ -8,33 +8,23 @@ function reverseMatrix(matrix: number[][]) {
 }
 
 /**
- * Производит реверс двумерной матрицы
+ * Транспонирует двумерную матрицу
  */
 function transposeMatrix(matrix: number[][]): number[][] {
   return matrix.reduce(
-    (acc, row) => row.map((item, i) => (acc[i] || []).concat(row[i])),
-    []
+    (acc, row) => row.map((item, i) => (acc[i] || <number[]>[]).concat(row[i])),
+    [],
   );
 }
 
 /**
- * Поворачивает матрицу на @count раз по часовой стрелке
+ * Поворачивает матрицу по часовой стрелке
  */
 function rotateMatrixClockwise(matrix: number[][], count = 1) {
   function rotateClockwiseOnce(array: number[][]) {
     return compose(transposeMatrix, reverseMatrix)(array);
   }
-  return composeNTimes(rotateClockwiseOnce, count, matrix);
+  return composeNTimes(rotateClockwiseOnce, matrix, count);
 }
 
-/**
- * Поворачивает матрицу на @count раз против часовой стрелки
- */
-function rotateMatrixCounter(matrix: number[][], count = 1) {
-  function rotateCounterClockwiseOnce(array: number[][]) {
-    return compose(reverseMatrix, transposeMatrix)(array);
-  }
-  return composeNTimes(rotateCounterClockwiseOnce, count, matrix);
-}
-
-export { rotateMatrixClockwise, rotateMatrixCounter };
+export { rotateMatrixClockwise };

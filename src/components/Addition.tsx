@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const move = keyframes`
@@ -21,5 +21,9 @@ const StyledAddition = styled.div`
   text-align: center;
 `;
 
-const Addition = ({ children }) => <StyledAddition>{children}</StyledAddition>;
+export interface IAddition {
+  children: React.ReactNode
+}
+
+const Addition: FC<IAddition> = ({ children }) => <StyledAddition>{children}</StyledAddition>;
 export default Addition;
